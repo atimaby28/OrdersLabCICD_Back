@@ -30,8 +30,8 @@ public class FarmService {
     // 농장 등록
     @Transactional
     public FarmDto.FarmRegisterResponse register(FarmDto.Register dto,
-                                         MultipartFile farmImageUrl,
-                                         Long userId) throws IOException {
+                                                 MultipartFile farmImageUrl,
+                                                 Long userId) throws IOException {
         // 농장 이미지 업로드
         String filePath = s3UploadService.upload(farmImageUrl);
         Farm farm = farmRepository.save(dto.toEntity(userId, filePath));
@@ -49,7 +49,7 @@ public class FarmService {
     @Transactional(readOnly = true)
     public FarmDto.FarmListResponse read(Long id) {
         Farm farm = farmRepository.findById(id)
-            .orElseThrow(() -> new IllegalArgumentException("농장을 찾을 수 없습니다."));
+                .orElseThrow(() -> new IllegalArgumentException("농장을 찾을 수 없습니다."));
         String presignedUrl = farm.getFarmImage() != null ?
                 s3PresignedUrlService.generatePresignedUrl(farm.getFarmImage(), Duration.ofMinutes(60)) :
                 s3PresignedUrlService.generatePresignedUrl("not-found-image.jpg", Duration.ofMinutes(60));

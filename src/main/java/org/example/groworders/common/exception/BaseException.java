@@ -1,6 +1,6 @@
 package org.example.groworders.common.exception;
 
-import lombok.*;
+import lombok.Getter;
 import org.example.groworders.common.model.BaseResponseStatus;
 
 @Getter
