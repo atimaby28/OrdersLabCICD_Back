@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 public class JwtUtil {
-    private static final String SECRET = "abcdeffghijklmnopqrstuvwxyz0123456";
+    private static final String SECRET = "abcdeffghijklmnopqrstuvwxyz01234567";
     private static final Key KEY = Keys.hmacShaKeyFor(SECRET.getBytes());
     private static final Long EXP = 1000 * 60 * 120L;
 
