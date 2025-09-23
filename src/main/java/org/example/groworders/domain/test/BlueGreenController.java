@@ -7,10 +7,10 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
-@RestController
+@RestController("/api/test")
 public class BlueGreenController {
 
-    @GetMapping("/api/test/bg")
+    @GetMapping("/bg")
     public Map<String, Object> getVersionInfo() {
         Map<String, Object> response = new HashMap<>();
         response.put("version:", "blue"); // Canary / Stable 구분

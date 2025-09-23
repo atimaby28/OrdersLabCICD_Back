@@ -57,7 +57,7 @@ public class SecurityConfig {
                 // 권한 설정
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/login", "/api/auth/**", "/api/users/**", "/api/swagger-ui/**").permitAll()
-                        .requestMatchers("/api/test/**").hasRole("USER")
+                        .requestMatchers("/api/test/**").permitAll()
                         .requestMatchers("/api/order/**", "/api/payment/**", "/api/cart/**", "/ws/**").authenticated()
                         .requestMatchers("/api/crops/**", "/api/inventories/**", "/api/farms/**").authenticated()
                         .anyRequest().permitAll()
