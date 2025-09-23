@@ -15,7 +15,7 @@ public class BlueGreenController {
     @GetMapping("/bg")
     public Map<String, Object> getVersionInfo() {
         Map<String, Object> response = new HashMap<>();
-        response.put("version:", "green "); // Canary / Stable 구분
+        response.put("version:", "green"); // Canary / Stable 구분
         response.put("timestamp", LocalDateTime.now().toString());
         return response;
     }
